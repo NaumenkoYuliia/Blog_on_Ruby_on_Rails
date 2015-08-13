@@ -1,17 +1,15 @@
- 
-<div class="row">
-  <div class="large-9 columns" role="content">
+  <div class="row-articles container">
 	  	 <%= render :partial => @posts %>
   </div>
      
-  <aside class="large-3 columns">
+  <aside>
     <h5>Categories</h5>
     <ul class="side-nav">
-      <li><a href="#">News</a></li>
-      <li><a href="#">Code</a></li>
-      <li><a href="#">Design</a></li>
-      <li><a href="#">Fun</a></li>
-      <li><a href="#">Weasels</a></li>
+      <li><%= link_to "News", posts_path(category: "News")%></li>
+      <li><%= link_to "Code", posts_path(category: "Code")%></li>
+      <li><%= link_to "Design", posts_path(category: "Design")%></li>
+      <li><%= link_to "Fun", posts_path(category: "Fun")%></li>
+      <li><%= link_to "Weasels", posts_path(category: "Weasels")%></li>
     </ul>
     <%- if @featured_post %>
     <div class="panel">
@@ -20,6 +18,4 @@
       <%= link_to 'Read More →', @featured_post %>
     </div>
     <%- end %>
-  </aside>
-</div>
- 
+  </aside> 

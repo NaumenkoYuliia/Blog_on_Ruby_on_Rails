@@ -1,14 +1,17 @@
 class PostsController < ApplicationController
   
-  before_filter :authenticate, :except => [ :index, :show ]
-
+  before_action :authenticate, :except => [ :index, :show ]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
-    @featured_post = Post.where(featured: true).last
+    @posts = if category
+      Post.where(category: category).all
+    else
+      Post.all
+    end
+    @featured_post = Post.featured
 
     respond_to do |format|
       format.html # index.html.erb
@@ -80,10 +83,14 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :body, :author, :featured, :category)
     end
-  private
+
     def authenticate
       authenticate_or_request_with_http_basic do |name, password|
         name == "admin" && password == "secret"
       end
+    end
+
+    def category
+      params[:category] if ["News", "Code", "Design", "Fun", "Weasels"].include? params[:category]
     end
 end
