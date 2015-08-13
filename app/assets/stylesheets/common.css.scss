@@ -103,6 +103,8 @@ small {
     font-size: 60%;
     color: $smallTextColor;
 }
+
+/* Page layout */
 header, .main, footer {
 	width: 100%;
 	margin: 0 auto;
@@ -111,11 +113,6 @@ header, .main, footer {
 .main-row:before, .main-row:after {
     content: " ";
     display: table;
-}
-
-/* Hide last hr in document */
-.main hr:last-of-type {
-	visibility: hidden;
 }
 
 /* Header styles */
@@ -155,7 +152,28 @@ header, .main, footer {
 	}
 }
 
-/* Main styles */
+/* Footer styles */
+footer {
+	div{
+		width: 50%;
+		float: left;
+	}
+	.right {
+    	margin-left: -1.375rem;
+	}
+	ul {
+		padding-left: 0.9375rem;
+		float: right;
+		margin: 0 auto 1.0625rem auto;
+	}
+	ul li {
+		float: left;
+		margin-left: 1.375rem;
+	}
+	p {
+		float: left;
+	}
+}
 /* Article styles */
 article:after, article:before {
 	content: "";
@@ -169,11 +187,15 @@ article:after, article:before {
     margin-bottom: 0.9375rem;
 }
 
+/* Main-content styles */
 /* Home page styles */
-/* Block-of-articles styles */
+/* Row article */
 .row-articles {
     float: left;
     width: 75%;
+}
+.main hr:last-of-type {
+	visibility: hidden;
 }
 /* Aside element */
 aside {
@@ -182,7 +204,6 @@ aside {
     padding-right: 0.9375rem;
 	float: right;
 	width: 25%;
-
 }
 .side-nav {
 	display: block;
@@ -214,13 +235,7 @@ aside {
     color: $panerFontColor;
 }
 
-/* Form styles */
-form{
-	width: 100%;
-	p {
-		width: 100%;
-	}
-}
+/* Post-creating page */
 .post-form-create {
 	width: 75%;
 	p {
@@ -228,6 +243,14 @@ form{
 	}
 	h1 {
 		text-align: center;
+	}
+}
+
+/* Common form styles */
+form{
+	width: 100%;
+	p {
+		width: 100%;
 	}
 }
 form > div{
@@ -285,30 +308,6 @@ input[type="submit"]:focus {
 	border-left: 2px solid rgb(137,137,137);
 	border-top: 2px solid rgb(137,137,137);
 }
-
-/* Footer styles */
-footer {
-	div{
-		width: 50%;
-		float: left;
-	}
-	.right {
-    	margin-left: -1.375rem;
-	}
-	ul {
-		padding-left: 0.9375rem;
-		float: right;
-		margin: 0 auto 1.0625rem auto;
-	}
-	ul li {
-		float: left;
-		margin-left: 1.375rem;
-	}
-	p {
-		float: left;
-	}
-}
-
 
 /* Adopting */
 @media all and (max-width: 64.063em){
