@@ -113,6 +113,9 @@ header, .main, footer {
     content: " ";
     display: table;
 }
+
+/* header styles */
+
 header {
 	.button-group {
 		margin: -4px 0 0 0;
@@ -148,6 +151,12 @@ header {
 	    background-color: $topButtonHoverColor;
 	    color: $topButtonFontColor;
 	}
+}
+
+/* Main document */
+
+.main hr:last-of-type {
+	visibility: hidden;
 }
 
 /* Article styles */
@@ -206,12 +215,6 @@ aside {
     padding: 1.25rem;
     background: $panelBackgroundColor;
     color: $panerFontColor;
-}
-
-/* Hide last hr in all document */
-
-.main hr:last-of-type {
-	visibility: hidden;
 }
 
 /* Footer styles */
