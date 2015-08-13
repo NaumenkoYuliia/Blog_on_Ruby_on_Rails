@@ -109,10 +109,7 @@ header, .main, footer {
 	margin: 0 auto;
 	max-width: 62.5rem;
 }
-
-/* header styles */
-
-header:before, header:after, .main-row:before, .main-row:after {
+.main-row:before, .main-row:after {
     content: " ";
     display: table;
 }
