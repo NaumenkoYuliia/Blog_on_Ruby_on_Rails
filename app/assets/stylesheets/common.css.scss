@@ -90,10 +90,10 @@ p {
 .center {
 	margin: auto;
 }
-.left {
+.fleft {
 	float: left;
 }
-.right {
+.fright {
 	float: right;
 }
 .main-row {
@@ -158,7 +158,7 @@ footer {
 		width: 50%;
 		float: left;
 	}
-	.right {
+	.fright {
     	margin-left: -1.375rem;
 	}
 	ul {
@@ -175,6 +175,9 @@ footer {
 	}
 }
 /* Article styles */
+article div{
+	width: 100%;
+}
 article:after, article:before {
 	content: "";
 	display: block;
@@ -325,7 +328,7 @@ input[type="submit"]:focus {
 	ul.button-group {
 		height: 140px !important;
 	}
-	footer .right {
+	footer .fright {
    		width: 100%;
    		margin: 0;
    		ul {
