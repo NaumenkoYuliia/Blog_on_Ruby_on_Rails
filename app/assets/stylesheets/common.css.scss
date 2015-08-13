@@ -17,7 +17,6 @@ $smallTextColor: #6f6f6f;
 $labelFontColor: rgba(0,0,0,0.5);
 
 /* Common styes */
-
 * {
 	margin: 0;
 	padding: 0;
@@ -115,7 +114,6 @@ header, .main, footer {
 }
 
 /* header styles */
-
 header {
 	.button-group {
 		margin: -4px 0 0 0;
@@ -154,13 +152,11 @@ header {
 }
 
 /* Main document */
-
 .main hr:last-of-type {
 	visibility: hidden;
 }
 
 /* Article styles */
-
 article:after, article:before {
 	content: "";
 	display: block;
@@ -169,7 +165,6 @@ article:after, article:before {
 }
 
 /* Home page styles */
-
 .row-articles {
     float: left;
     width: 75%;
@@ -218,7 +213,6 @@ aside {
 }
 
 /* Footer styles */
-
 footer {
 	div{
 		width: 50%;
@@ -242,7 +236,6 @@ footer {
 }
 
 /* Form styles */
-
 form{
 	width: 100%;
 	p {
@@ -315,7 +308,6 @@ input[type="submit"]:focus {
 }
 
 /* Adopting */
-
 @media all and (max-width: 64.063em){
 	.row-articles{
 		width: 100%;
