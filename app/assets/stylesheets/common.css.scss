@@ -15,16 +15,24 @@ $hrColor: #DDD;
 $inputBorderColor: #cccccc;
 $smallTextColor: #6f6f6f;
 $labelFontColor: rgba(0,0,0,0.5);
+
+/* Common styes */
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
-html{
+html {
+	font-size: 16px;
+}
+body { 	
 	display: block;
 	height: 100%;
-	font-size: 16px;
-	height: 321px;
+	background: $bodyBackgroundColor;
+	color: $bodyFontColor;
+	font-family: "Helvetica Neune", Helvetica, Roboto, Arial, sans-serif;
+	line-height: 1.5;
 }
 a {
 	color: $linkColor;
@@ -89,6 +97,152 @@ p {
 .right {
 	float: right;
 }
+.main-row {
+	padding: 0 0.9375rem;
+}
+small {
+    font-size: 60%;
+    color: $smallTextColor;
+}
+header, .main, footer {
+	width: 100%;
+	margin: 0 auto;
+	max-width: 62.5rem;
+}
+
+/* header styles */
+
+header:before, header:after, .main-row:before, .main-row:after {
+    content: " ";
+    display: table;
+}
+header {
+	.button-group {
+		margin: -4px 0 0 0;
+		left: 0;
+		display: block;
+		font-size: 1rem;
+		line-height: 1.6;
+		font-family: inherit;
+		height: 70px;
+	}
+	.button-group li{
+		float: left;
+		margin: 0 -2px;
+		padding: 0;
+		display: inline-block;
+	}
+	.button {
+		text-decoration: none;
+		display: inline-block;
+		font-size: 1rem;
+		padding: 1rem 2rem 0.85em 2rem;
+		margin: 0 0 1.25rem;
+		border-left: 1px solid rgba(255,255,255,0.5);
+		text-align: center;
+		background-color: $topButtonColor;
+		color: $topButtonFontColor;
+		transition: background-color 300ms ease-out;
+	}
+	.button-group li:first-child .button {
+		border-left: 0;
+	}
+	.button:focus, .button:hover {
+	    background-color: $topButtonHoverColor;
+	    color: $topButtonFontColor;
+	}
+}
+
+/* Article styles */
+
+article:after, article:before {
+	content: "";
+	display: block;
+	clear: both;
+	visible: hidden;
+}
+
+/* Home page styles */
+
+.row-articles {
+    float: left;
+    width: 75%;
+}
+.article-image {
+	width: 50%;
+	padding-left: 0.9375rem;
+    margin-left: 0.9375rem;
+    margin-bottom: 0.9375rem;
+}
+aside {
+	position: relative;
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+	float: right;
+	width: 25%;
+}
+.side-nav {
+	display: block;
+    padding: 0.8rem 0;
+    list-style-position: outside;
+    transition: background-color 300ms ease-out;
+    li {
+		margin-bottom: 0.5rem;
+		a {
+		    margin: 0 0 0.4375rem 0;
+			font-size: 0.875rem;
+		    display: block;
+		    color: $asideLinkColor;
+		    padding: 0.4375rem 0.875rem;
+		}
+	}
+	li:hover, li:focus {
+	    background-color: $asideHoverBackgroundColor;
+	    a{
+	    	color: $asideHoverLinkColor;
+	    }
+	}
+}	
+.panel {
+    border: 1px solid $panelBorder;
+    margin-bottom: 1.25rem;
+    padding: 1.25rem;
+    background: $panelBackgroundColor;
+    color: $panerFontColor;
+}
+
+/* Hide last hr in all document */
+
+.main hr:last-of-type {
+	visibility: hidden;
+}
+
+/* Footer styles */
+
+footer {
+	div{
+		width: 50%;
+		float: left;
+	}
+	.right {
+    	margin-left: -1.375rem;
+	}
+	ul {
+		padding-left: 0.9375rem;
+		float: right;
+		margin: 0 auto 1.0625rem auto;
+	}
+	ul li {
+		float: left;
+		margin-left: 1.375rem;
+	}
+	p {
+		float: left;
+	}
+}
+
+/* Form styles */
+
 form{
 	width: 100%;
 	p {
@@ -128,24 +282,18 @@ textarea, .field input, select {
     resize: auto;
     height: 8rem;
 }
-textarea#comment_body{
+#comment_body{
 	height: 4rem;
 }
 .field input, .field select {
-    height: 2rem;
+    height: 2.25rem;
 }
-.checkbox input[type="checkbox"] {
+input[type="checkbox"] {
     border: 1px solid $inputBorderColor;
     color: rgba(0,0,0,0.75);
     display: block;
     width: 2rem;
     height: 2rem;
-}
-textarea:focus, .field input:focus, .field select:focus {
-	outline: none; 
-	background: rgb(250,250,250);
-    box-shadow: 0 0 6px rgba(0,0,0,0.3);
-	border: 1px solid rgb(153,153,153);
 }
 input[type="submit"] {
 	padding: 1px 6px;
@@ -153,152 +301,20 @@ input[type="submit"] {
 	border: 2px solid rgb(221,221,221);
 	border-right: 2px solid rgb(137,137,137);
 	border-bottom: 2px solid rgb(137,137,137);
-
+}
+textarea:focus, .field input:focus, .field select:focus {
+	outline: none; 
+	background: rgb(250,250,250);
+    box-shadow: 0 0 6px rgba(0,0,0,0.3);
+	border: 1px solid rgb(153,153,153);
 }
 input[type="submit"]:focus {
 	border: 2px solid rgb(221,221,221);
 	border-left: 2px solid rgb(137,137,137);
 	border-top: 2px solid rgb(137,137,137);
 }
-.image {
-	width: 50%;
-	padding-left: 0.9375rem;
-    margin-left: 0.9375rem;
-    margin-bottom: 0.9375rem;
-}
-body { 	
-	display: block;
-	height: 100%;
-	background: $bodyBackgroundColor;
-	color: $bodyFontColor;
-	font-family: "Helvetica Neune", Helvetica, Roboto, Arial, sans-serif;
-	line-height: 1.5;
-}
-.container {
-	padding: 0 0.9375rem;
-}
-header:before, header:after, .container:before, .container:after {
-    content: " ";
-    display: table;
-}
-small {
-    font-size: 60%;
-    color: $smallTextColor;
-    line-height: 0;
-}
-header, .main, footer {
-	width: 100%;
-	margin: 0 auto;
-	max-width: 62.5rem;
-}
-header {
-	.button-group {
-	margin: -4px 0 0 0;
-	left: 0;
-	}
-	ul.button-group {
-		display: block;
-		font-size: 1rem;
-		line-height: 1.6;
-		font-family: inherit;
-		height: 70px;
-	}
-	.button-group li{
-		float: left;
-		margin: 0 -2px;
-		padding: 0;
-		display: inline-block;
-	}
-	.button {
-		text-decoration: none;
-		display: inline-block;
-		font-size: 1rem;
-		padding: 1rem 2rem 0.85em 2rem;
-		margin: 0 0 1.25rem;
-		border-left: 1px solid rgba(255,255,255,0.5);
-		text-alighn: center;
-		background-color: $topButtonColor;
-		color: $topButtonFontColor;
-		transition: background-color 300ms ease-out;
-	}
-	.button-group li:first-child .button {
-		border-left: 0;
-	}
-	.button:focus, .button:hover {
-	    background-color: $topButtonHoverColor;
-	    color: $topButtonFontColor;
-	}
-}
-.row-articles {
-    float: left;
-    width: 75%;
-}
-article:after, article:before {
-	content: "";
-	display: block;
-	clear: both;
-	visible: hidden;
-}
-aside {
-	position: relative;
-    padding-left: 0.9375rem;
-    padding-right: 0.9375rem;
-	float: right;
-	width: 25%;
-}
-.side-nav {
-	display: block;
-    padding: 0.8rem 0;
-    list-style-position: outside;
-    transition: background-color 300ms ease-out;
-    li {
-		margin-bottom: 0.5rem;
-		a {
-		    margin: 0 0 0.4375rem 0;
-			font-size: 0.875rem;
-		    display: block;
-		    color: $asideLinkColor;
-		    padding: 0.4375rem 0.875rem;
-		}
-	}
-	li:hover, li:focus {
-	    background-color: $asideHoverBackgroundColor;
-	    a{
-	    	color: $asideHoverLinkColor;
-	    }
-	}
-}	
-.panel {
-    border: 1px solid $panelBorder;
-    margin-bottom: 1.25rem;
-    padding: 1.25rem;
-    background: $panelBackgroundColor;
-    color: $panerFontColor;
-}
-.main hr:last-of-type {
-	visibility: hidden;
-}
-footer {
-	div{
-		width: 50%;
-		float: left;
-	}
-	.right {
-    	margin-left: -1.375rem;
-	}
-	ul {
-		padding-left: 0.9375rem;
-		float: right;
-		margin: 0 auto 1.0625rem auto;
-	}
-	ul li {
-		float: left;
-		margin-left: 1.375rem;
-	}
-	p {
-		float: left;
-	}
-}
+
+/* Adopting */
 
 @media all and (max-width: 64.063em){
 	.row-articles{
@@ -307,7 +323,7 @@ footer {
 	aside {
 		width: 100%;
 	}
-	.image {
+	.article-image {
 		width: 100%;
 		padding: 0;
 	}
