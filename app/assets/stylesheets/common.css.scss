@@ -113,18 +113,22 @@ header, .main, footer {
     display: table;
 }
 
-/* header styles */
-header {
-	.button-group {
-		margin: -4px 0 0 0;
-		left: 0;
-		display: block;
-		font-size: 1rem;
-		line-height: 1.6;
-		font-family: inherit;
-		height: 70px;
-	}
-	.button-group li{
+/* Hide last hr in document */
+.main hr:last-of-type {
+	visibility: hidden;
+}
+
+/* Header styles */
+/* Button-group styles */
+.button-group {
+	margin: -4px 0 0 0;
+	left: 0;
+	display: block;
+	font-size: 1rem;
+	line-height: 1.6;
+	font-family: inherit;
+	height: 70px;
+	li{
 		float: left;
 		margin: 0 -2px;
 		padding: 0;
@@ -142,7 +146,7 @@ header {
 		color: $topButtonFontColor;
 		transition: background-color 300ms ease-out;
 	}
-	.button-group li:first-child .button {
+	li:first-child .button {
 		border-left: 0;
 	}
 	.button:focus, .button:hover {
@@ -151,11 +155,7 @@ header {
 	}
 }
 
-/* Main document */
-.main hr:last-of-type {
-	visibility: hidden;
-}
-
+/* Main styles */
 /* Article styles */
 article:after, article:before {
 	content: "";
@@ -163,24 +163,27 @@ article:after, article:before {
 	clear: both;
 	visible: hidden;
 }
-
-/* Home page styles */
-.row-articles {
-    float: left;
-    width: 75%;
-}
 .article-image {
 	width: 50%;
 	padding-left: 0.9375rem;
     margin-left: 0.9375rem;
     margin-bottom: 0.9375rem;
 }
+
+/* Home page styles */
+/* Block-of-articles styles */
+.row-articles {
+    float: left;
+    width: 75%;
+}
+/* Aside element */
 aside {
 	position: relative;
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
 	float: right;
 	width: 25%;
+
 }
 .side-nav {
 	display: block;
@@ -210,29 +213,6 @@ aside {
     padding: 1.25rem;
     background: $panelBackgroundColor;
     color: $panerFontColor;
-}
-
-/* Footer styles */
-footer {
-	div{
-		width: 50%;
-		float: left;
-	}
-	.right {
-    	margin-left: -1.375rem;
-	}
-	ul {
-		padding-left: 0.9375rem;
-		float: right;
-		margin: 0 auto 1.0625rem auto;
-	}
-	ul li {
-		float: left;
-		margin-left: 1.375rem;
-	}
-	p {
-		float: left;
-	}
 }
 
 /* Form styles */
@@ -306,6 +286,30 @@ input[type="submit"]:focus {
 	border-left: 2px solid rgb(137,137,137);
 	border-top: 2px solid rgb(137,137,137);
 }
+
+/* Footer styles */
+footer {
+	div{
+		width: 50%;
+		float: left;
+	}
+	.right {
+    	margin-left: -1.375rem;
+	}
+	ul {
+		padding-left: 0.9375rem;
+		float: right;
+		margin: 0 auto 1.0625rem auto;
+	}
+	ul li {
+		float: left;
+		margin-left: 1.375rem;
+	}
+	p {
+		float: left;
+	}
+}
+
 
 /* Adopting */
 @media all and (max-width: 64.063em){
