@@ -23,6 +23,15 @@
   }
 }
 
+@mixin text-params($font-size, $line-height) {
+  font-family: $text-font-stack;
+  font-weight: normal;
+  font-style: normal;
+  font-size: $font-size;
+  line-height: $line-height;
+  text-rendering: optimizeLegibility;
+}
+
 /// Make a context based selector a little more friendly
 /// @author Hugo Giraudel
 /// @param {String} $context

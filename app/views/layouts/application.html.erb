@@ -8,11 +8,12 @@
   <%= auto_discovery_link_tag(:atom, posts_path(:atom)) %>
 </head>
 <body>
+  <div class="wrap">
 	<%= render :partial => 'layouts/header' %>
 	<div class="main">
 		<%= yield %>
 	</div>
-
 	<%= render :partial => 'layouts/footer' %>
+  </div>
 </body>
 </html>

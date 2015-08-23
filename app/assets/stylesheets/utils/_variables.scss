@@ -4,7 +4,11 @@
 
 
 
-
+$susy: (
+  global-box-sizing: border-box,
+  use-custom: (rem: true),
+  gutter-position: inside
+);
 
 /// Regular font family
 /// @type List
