@@ -28,9 +28,17 @@ header hr {
   float: left;
   width: 100%;
 }
+
+/**
+ * Align the list to the right
+ */
 header ul {
   float: right;
 }
+
+/**
+ * Styles for each element in list (buttons)
+ */
 header li {
   display: inline-block;
   font-family: 'Nimbus Sans L','Times New Roman', serif;
