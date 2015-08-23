@@ -11,7 +11,7 @@ group :production do
   gem 'pg'
 end
 
-gem 'sass-rails',   '~> 4.0.3'
+gem 'sass-rails'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 # gem 'foundation-rails', '5.4.5'
@@ -45,4 +45,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 gem 'coffee-script-source', '1.8.0'
 
-gem 'susy'
+gem 'compass' , '1.0.0'
