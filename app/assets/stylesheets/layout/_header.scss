@@ -2,3 +2,57 @@
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
 
+/**
+ * Set button-group to right
+ * Set h1 length 6 columns
+ */
+header .button-group {
+  @include span(6.4 of 12 last);
+  padding-right: 0;
+  line-height: 1.6;
+  font-family: inherit;
+}
+
+/**
+ * Set h1 length 6 columns
+ */
+header h1 {
+  @include span(5.6 of 12);
+  padding: 0;
+}
+
+/**
+ * Set hr relative the last item
+ */
+header hr {
+  float: left;
+  width: 100%;
+}
+header ul {
+  float: right;
+}
+header li {
+  display: inline-block;
+  font-family: 'Nimbus Sans L','Times New Roman', serif;
+  font-size: 1rem;
+  padding: 0.75rem 1.9rem 0.85rem;
+  margin: 0 -2.5px 0.8rem;
+  border-left: 1px solid rgba(255,255,255,0.5);
+  text-align: center;
+  background-color: $top-button-color;
+  color: $top-button-font-color;
+  transition: background-color 300ms ease-out;
+  a {
+      color: $top-button-font-color;
+  }
+  &:focus, &:hover {
+    background-color: $top-button-hover-color;
+    a {
+      color: $top-button-font-color;
+    }
+  }
+  &:first-child {
+  border-left: 0;
+  }
+}
+

@@ -43,10 +43,18 @@ $light-grey: #DDD !default;
 /// @type Color
 $mid-grey: #999 !default;
 
-/// Dark grey
-/// @type Color
-$dark-grey: #444 !default;
 
+/**
+* Buttons color in the top
+*/ 
+/// Button background color
+$top-button-color: #008CBA;
+
+/// Button:hover background color
+$top-button-hover-color: #007095;
+
+/// Button font color
+$top-button-font-color: #fff;
 
 
 

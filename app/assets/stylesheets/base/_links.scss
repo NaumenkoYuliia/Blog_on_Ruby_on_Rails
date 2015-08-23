@@ -12,6 +12,6 @@ a {
 
   @include on-event {
     color: $dark-blue;
-    text-decoration: underline;
+    text-decoration: none;
   }
 }
