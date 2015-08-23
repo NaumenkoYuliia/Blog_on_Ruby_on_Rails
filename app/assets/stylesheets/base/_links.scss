@@ -8,6 +8,7 @@
  */
 a {
   color: $brand-color;
+  font-family: 'Nimbus Sans L','Times New Roman', serif;
   text-decoration: none;
 
   @include on-event {
