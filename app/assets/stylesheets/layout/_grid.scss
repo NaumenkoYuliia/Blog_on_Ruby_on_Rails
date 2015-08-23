@@ -1,0 +1,22 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the grid.
+// -----------------------------------------------------------------------------
+
+.wrap {
+  @include span(9 of 12);
+  padding-left: 5px;
+  padding-right: 5px;
+  float: none;
+  margin: 0 auto;
+}
+
+.content {
+  @include span(9 of 12);
+  padding: 0;
+}
+
+aside {
+  @include span(3 of 12);
+  padding: 0 1.4rem;
+  @include last;
+}

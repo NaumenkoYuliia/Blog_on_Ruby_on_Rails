@@ -14,30 +14,12 @@
 }
 
 /**
- * Set up a decent box model on the root element
+ * Set up settings on the root element
  */
 html {
-  box-sizing: border-box;
   background: $background-color;
+  box-sizing: border-box;
   @include container;
-}
-
-.wrap {
-  @include span(9 of 12);
-  padding-left: 5px;
-  padding-right: 5px;
-  float: none;
-  margin: 0 auto;
-}
-
-.content {
-  @include span(9 of 12);
-  padding: 0;
-}
-
-aside {
-  @include span(3 of 12);
-  @include last;
 }
 
 /**
@@ -49,95 +31,3 @@ aside {
 *, *::before, *::after {
   box-sizing: inherit;
 } 
-
-/**
- * Basic styles for links
- */
-a {
-  color: $brand-color;
-  text-decoration: none;
-
-  @include on-event {
-    color: $dark-blue;
-    text-decoration: underline;
-  }
-}
-
-/**
- * Basic styles for lists
- */
-ul {
-  list-style: none;
-}
-
-/**
- * Basic styles for headers
- */
-h1 {
-  @include text-params(2.75rem, 1.4);
-  margin: 0.2rem 0 0.5rem 0;
-}
-
-h2 {
-  @include text-params(2.3125rem, 1.4);
-  margin: 0.2rem 0 0.5rem 0;
-}
-
-h3 {
-  @include text-params(1.6875rem, 1.4);
-  margin: 0.2rem 0 0.5rem 0;
-}
-
-h5 {
-  @include text-params(1.125rem, 1.4);
-  margin: 0.1rem 0 0 0;
-}
-
-h6 {
-  @include text-params(1rem, 1.4);
-  margin-bottom: 0.55rem;
-}
-
-hr {
-  border: solid $light-grey;
-  border-width: 1px 0px 0px;
-  clear: both;
-  margin: 20px 0 20px;
-  height: 0;
-  .main &:last-of-type {
-    display: none;
-  }
-}
-
-
-/**
- * Basic styles for img-s
- */
-img {
-  vertical-align: middle;
-  margin: auto;
-  max-width: 100%;
-}
-
-/**
- * Basic styles for paragraphs
- */
-p {
-  @include text-params(1rem, 1.6);
-  margin-bottom: 1.25rem;
-}
-
-/**
- * Basic styles for alignment
- */
-.center {
-  margin: auto;
-}
-
-.fleft {
-  float: left;
-}
-
-.fright {
-  float: right;
-}
