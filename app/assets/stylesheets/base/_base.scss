@@ -22,13 +22,12 @@ html {
   font-size: 16px;
   @include container;
 
-  // Adopt for diffrent screen
-  // Change font-height to smaller
-  // @Font-weight
+// Adopt for diffrent screen
+// Change font-height to smaller
   @include to(4) {
     font-size: 14px;
   }
-  // @Font-weight
+// Change font-height to smaller
   @include to(3) {
     font-size: 12px;
   }
