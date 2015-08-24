@@ -28,8 +28,3 @@ body {
 	height: 100%;
 }
 
-html::before, html::after {
-  content: '';
-  display: block;
-  height: 0;
-}
