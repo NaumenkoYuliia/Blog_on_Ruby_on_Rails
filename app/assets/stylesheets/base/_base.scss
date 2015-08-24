@@ -21,10 +21,16 @@ html {
   box-sizing: border-box;
   font-size: 16px;
   @include container;
-}
 
-body {
-	width: 100%;
-	height: 100%;
+  // Adopt for diffrent screen
+  // Change font-height to smaller
+  // @Font-weight
+  @include to(4) {
+    font-size: 14px;
+  }
+  // @Font-weight
+  @include to(3) {
+    font-size: 12px;
+  }
 }
 

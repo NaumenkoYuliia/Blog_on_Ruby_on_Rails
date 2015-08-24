@@ -13,4 +13,10 @@
 	top: 0;
 	left:50%; 
 	margin-left:-($basic-row-width/2);
+
+//Adopt for diffrent screen
+	@include to(4) {
+	  @include span(11.5 of 12);
+	  margin-left: -11.5/12*100%/2;
+  }
 }

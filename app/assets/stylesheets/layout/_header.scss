@@ -11,6 +11,18 @@ header .button-group {
   padding: 0;
   line-height: 1.6;
   font-family: inherit;
+
+  //Adopt for diffrent screen
+  @include between(3, 4) {
+    @include span(8 of 12 last);
+  }
+  @include to(3) {
+    @include span(12 of 12);
+    ul {
+      float: none;
+      text-align: center;
+    }
+  }
 }
 
 /**
@@ -19,6 +31,15 @@ header .button-group {
 header h1 {
   @include span(5.75 of 12);
   padding: 0;
+
+  //Adopt for diffrent screen
+  @include between(3, 4) {
+    @include span(4 of 12);
+  }
+  @include to(3) {
+    @include span(12 of 12);
+    text-align: center;
+  }
 }
 
 /**

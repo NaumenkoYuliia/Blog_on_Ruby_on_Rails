@@ -1,8 +1,12 @@
 @charset 'UTF-8';
+
 // 1. Vendors
 @import
   'vendor/normalize',
-  'vendor/susy-master/sass/susy';
+  'vendor/susy-master/sass/su',
+  'vendor/susy-master/sass/susy',
+  'vendor/breakpoint/stylesheets/breakpoint',
+  'vendor/breakpoint-slicer-master/stylesheets/breakpoint-slicer';
 
 // 2. Configuration and helpers
 @import

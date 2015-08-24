@@ -8,6 +8,11 @@
 .content {
   @include span(8.91 of 12);
   padding: 0;
+
+//Adopt for diffrent screen
+	@include to(4) {
+	  @include span(12 of 12);
+	}
 }
 
 /**
@@ -17,4 +22,9 @@ aside {
   @include span(3.09 of 12);
   padding: 0 0 0 1.85rem;
   @include last;
+  
+//Adopt for diffrent screen
+  @include to(4) {
+    @include span(12 of 12);
+  }
 }
