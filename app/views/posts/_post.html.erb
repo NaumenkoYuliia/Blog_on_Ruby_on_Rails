@@ -1,12 +1,8 @@
 <article>
-  <div class="fleft">
     <h3><%= link_to_unless_current post.title, post %></h3>
     <h6>Written by <a href="#"><%= post.author %></a> on <%= post.created_at.strftime("%B %e, %Y") %>.</h6>
-      <div class="fright article-image">
-        <img src="http://placehold.it/400x240&text=[img]"/>
-      </div>    
+      <img src="http://placehold.it/400x240&text=[img]"/>   
       <%= simple_format post.body %>
-    </div>
 </article>
 <hr/>
 

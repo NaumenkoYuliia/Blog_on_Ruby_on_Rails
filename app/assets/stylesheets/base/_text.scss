@@ -14,6 +14,6 @@ small {
  * Basic styles for paragraphs
  */
 p {
-  @include text-params(1rem, 1.6);
+  @include text-params(1rem, 1.6rem);
   margin-bottom: 1.25rem;
 }

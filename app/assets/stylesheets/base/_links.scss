@@ -8,11 +8,11 @@
  */
 a {
   color: $brand-color;
-  font-family: 'Nimbus Sans L','Times New Roman', serif;
+  font-family: $text-font-links;
   text-decoration: none;
 
   @include on-event {
-    color: $dark-blue;
+    color: $dark-brand-color;
     text-decoration: none;
   }
 }

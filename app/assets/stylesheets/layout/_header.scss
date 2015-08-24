@@ -46,14 +46,14 @@ header li {
   margin: 0 -2.5px 0.8rem;
   border-left: 1px solid rgba(255,255,255,0.5);
   text-align: center;
-  background-color: $top-button-color;
+  background-color: $brand-color;
   color: $top-button-font-color;
   transition: background-color 300ms ease-out;
   a {
       color: $top-button-font-color;
   }
   &:focus, &:hover {
-    background-color: $top-button-hover-color;
+    background-color: $dark-brand-color;
     a {
       color: $top-button-font-color;
     }

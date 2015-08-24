@@ -14,6 +14,10 @@ $susy: (
 /// @type List
 $text-font-stack: 'Helvetica Neune', Helvetica, Arial, sans-serif !default;
 
+/// Font family for links
+/// @type List
+$text-font-links:'Nimbus Sans L','Times New Roman', serif;
+
 /// Regular line height
 /// @type Line-height
 $text-line-height: 1.5;
@@ -33,7 +37,7 @@ $brand-color: #008CBA !default;
 
 /// Dark blue
 /// @type Color
-$dark-blue: #007095 !default;
+$dark-brand-color: #007095 !default;
 
 /// Light grey
 /// @type Color
@@ -47,12 +51,6 @@ $mid-grey: #999 !default;
 /**
 * Buttons color in the top
 */ 
-/// Button background color
-$top-button-color: #008CBA;
-
-/// Button:hover background color
-$top-button-hover-color: #007095;
-
 /// Button font color
 $top-button-font-color: #fff;
 

@@ -1,8 +1,20 @@
 // -----------------------------------------------------------------------------
 // This file contains styles that are specific to the home page.
 // -----------------------------------------------------------------------------
-img {
-  vertical-align: middle;
-  margin: auto;
-  max-width: 100%;
+
+/**
+ * Left part of the homepage (with articles)
+ */
+.content {
+  @include span(8.91 of 12);
+  padding: 0;
+}
+
+/**
+ * Right part of the homepage (with category and featured)
+ */
+aside {
+  @include span(3.09 of 12);
+  padding: 0 1.4rem;
+  @include last;
 }
