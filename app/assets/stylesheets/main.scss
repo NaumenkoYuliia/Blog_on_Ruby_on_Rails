@@ -26,14 +26,13 @@
   'layout/grid',
   'layout/header',
   'layout/footer',
-  'layout/article',
-  'layout/sidebar',
-  'layout/featured',
-  'layout/form';
+  'layout/article';
 
 // 5. Components
 @import
-  'components/buttons';
+  'components/sidebar',
+  'components/featured',
+  'components/form';
 
 // 6. Page-specific styles
 @import

@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 
 /**
- * Left part of the homepage (with articles)
+ * Left part of the homepage (articles)
  */
 .content {
   @include span(8.91 of 12);
@@ -11,7 +11,7 @@
 }
 
 /**
- * Right part of the homepage (with category and featured)
+ * Right part of the homepage (includes category and featured)
  */
 aside {
   @include span(3.09 of 12);
