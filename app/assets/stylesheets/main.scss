@@ -21,7 +21,6 @@
   'base/hr',
   'base/helpers';
 
-
 // 4. Layout-related sections
 @import
   'layout/grid',
@@ -29,7 +28,8 @@
   'layout/footer',
   'layout/article',
   'layout/sidebar',
-  'layout/featured';
+  'layout/featured',
+  'layout/form';
 
 // 5. Components
 @import
@@ -37,8 +37,13 @@
 
 // 6. Page-specific styles
 @import
-  'pages/home';
+  'pages/home',
+  'pages/new';
 
 // 7. Themes
 @import
   'themes/default';
+
+// 7. Shame
+@import
+  'shame/shame';

@@ -12,23 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :body %><br>
+    <%= f.label :body %>
     <%= f.text_area :body %>
   </div>
   <div class="field">
-    <%= f.label :author %><br>
+    <%= f.label :author %>
     <%= f.text_field :author %>
   </div>
   <div class="checkbox">
-    <%= f.label :featured %><br>
+    <%= f.label :featured %>
     <%= f.check_box :featured %>
   </div>
   <div class="field">
-    <%= f.label :category %><br>
+    <%= f.label :category %>
     <%= f.select(:category) do %>
       <% [['News', 'News'], ['Code', 'Code'], ['Design', 'Design'], ['Fun', 'Fun'], ['Weasels', 'Weasels']].each do |c| -%>
         <%= content_tag(:option, c.first, value: c.last) %>
