@@ -10,6 +10,10 @@ $susy: (
   gutter-position: inside
 );
 
+/// Basic grid
+/// @width of basic-row
+$basic-row-width: 979px;
+
 /// Regular font family
 /// @type List
 $text-font-stack: 'Helvetica Neune', Helvetica, Arial, sans-serif !default;
@@ -47,16 +51,13 @@ $light-grey: #DDD !default;
 /// @type Color
 $mid-grey: #999 !default;
 
-
-/**
-* Buttons color in the top
-*/ 
+/// Buttons color in the top
 /// Button font color
+/// @type Color
 $top-button-font-color: #fff;
 
-/**
-* Form-color
-*/
+/// Form-color
+/// @type Color
 $input-border-color: #cccccc;
 
 /// Container's maximum width
