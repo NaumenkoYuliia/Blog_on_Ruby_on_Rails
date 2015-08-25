@@ -43,6 +43,10 @@ $brand-color: #008CBA !default;
 /// @type Color
 $dark-brand-color: #007095 !default;
 
+/// Clair-grey
+/// @type Color
+$clair-grey: #f2f2f2 !default;
+
 /// Light grey
 /// @type Color
 $light-grey: #DDD !default;
@@ -51,10 +55,28 @@ $light-grey: #DDD !default;
 /// @type Color
 $mid-grey: #999 !default;
 
+/// Medium grey
+/// @type Color
+$dark-grey: #333 !default;
+
+/// Transparent grey
+/// @type Color
+$transparent-grey: rgba(0,0,0,0.05);
+
 /// Buttons color in the top
 /// Button font color
 /// @type Color
 $top-button-font-color: #fff;
+
+
+/// Box-shadow color
+/// @type Color
+$box-shadow-inset-color: rgba(0,0,0,0.1);
+
+
+/// Box-shadow color
+/// @type Color
+$box-shadow-outside-color: rgba(0,0,0,0.3);
 
 /// Form-color
 /// @type Color
