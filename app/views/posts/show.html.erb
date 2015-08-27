@@ -1,21 +1,43 @@
 <p id="notice"><%= notice %></p>
 <%= render :partial => @post %>
 
-<%= link_to 'Edit', edit_post_path(@post) %> 
+<%= link_to 'Edit', edit_post_path(@post) %>
 
 <%= link_to 'Back', posts_path %>
 
-<%= link_to 'Delete', post_path(@post), method: :delete %> 
+<%= link_to 'Delete', post_path(@post), method: :delete %>
 
 <h2>Comments</h2>
 <div id="comments">
   <%= render :partial => @post.comments %>
 </div>
 
-<%= form_for [@post, Comment.new], :remote => true do |f| %>
+<%= form_for [@post, Comment.new] do |f| %>
   <p>
     <%= f.label :body, "New comment" %><br/>
     <%= f.text_area :body %>
   </p>
   <p><%= f.submit "Add comment" %></p>
 <% end %>
+
+
+<!-- <%#= form_for [@post, Comment.new], :remote => true do |f| %>
+  <p>
+    <label> "New comment" </label><br/>
+    <input type = 'textarea'></input>
+  </p>
+  <p>
+    <input type = 'submit'> "Add comment" </input>
+  </p>
+<%# end %> -->
+
+
+<!-- <form accept-charset="UTF-8" class="new_comment" id="new_comment"></div>
+
+  <label for="comment_body">New comment</label><br>
+
+  <textarea id="comment_body"></textarea>
+
+  <button value="Add comment">Add comment</button>
+
+</form> -->
