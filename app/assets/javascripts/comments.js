@@ -1,3 +1,22 @@
+function drawWarning() {
+  var warningMessage = document.createElement('div');
+
+  warningMessage.style.backgroundColor = 'IndianRed';
+  warningMessage.style.borderRadius = '5px';
+
+  warningMessage.className = 'alert';
+  warningMessage.textContent = 'Sorry, but you\'ve written is too short message. Please try again. ';
+
+  var closeLink = document.createElement('a');
+  closeLink.className = 'close';
+  closeLink.setAttribute('data-dismiss', 'alert');
+  closeLink.setAttribute('aria-label', 'close');
+  closeLink.textContent = 'Close message';
+  warningMessage.appendChild(closeLink);
+
+  $('form').append(warningMessage);
+}
+
 function cleanTextarea() {
   $('#comment_body').val('');
 }
@@ -29,11 +48,15 @@ function doPost(url, data, commentTextValue, onAjaxSuccess) {
     type: "POST",
     data: data,
     success: function() { onAjaxSuccess(commentTextValue) },
-    error: function(jqXHR, textStatus, errorThrown){console.log('textStatus: ' + textStatus + '. Sorry, POST failed!')}
+    error: function(jqXHR, textStatus, errorThrown){
+      if (jqXHR.status === 422) {drawWarning()}
+    }
   })
 }
 
 $('document').ready(function(){
+
+ $('.close').alert();
 
   var commentForm;
   var commentTextValue;
@@ -44,10 +67,8 @@ $('document').ready(function(){
     e.preventDefault();
 
     commentTextValue = $('textarea').val();
-    commentForm = $(this).serialize();
 
-    console.log(commentForm);
-    console.log(commentTextValue);
+    commentForm = $(this).serialize();
 
     url = $('#new_comment').attr('action');
 

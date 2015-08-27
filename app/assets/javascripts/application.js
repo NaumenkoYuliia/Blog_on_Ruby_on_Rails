@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require jquery.timeago
+//= require ./vendor/jquery.timeago
+//= require ./vendor/alert
 //= require comments
 //= require_tree .
