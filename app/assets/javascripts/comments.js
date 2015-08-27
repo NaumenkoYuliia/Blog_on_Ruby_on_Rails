@@ -1,57 +1,57 @@
-
 function cleanTextarea() {
   $('#comment_body').val('');
 }
 
-function appendComment(textData) {
-  var addingComment = document.createElement('p');
-  addingComment.textContent = textData;
-  $('#comments').append(addingComment);
+function appendComment(commentTextValue) {
+  var addingCommentDiv = document.createElement('div');
+  var comment = document.createElement('p');
+  var br = document.createElement('br');
+  comment.textContent = commentTextValue;
+
+  var timeAgo = document.createElement('strong');
+  timeAgo.innerHTML = ('Posted ' + jQuery.timeago(new Date()));
+
+  addingCommentDiv.appendChild(timeAgo);
+  addingCommentDiv.appendChild(br);
+  addingCommentDiv.appendChild(comment);
+
+  $('#comments').append(addingCommentDiv);
 }
 
-function doPost(url, textData) {
+function onAjaxSuccess(commentTextValue) {
+  cleanTextarea();
+  appendComment(commentTextValue);
+}
+
+function doPost(url, data, commentTextValue, onAjaxSuccess) {
   $.ajax({
     url: url,
     type: "POST",
-    data: textData,
-    success: function() { cleanTextarea(); appendComment(textData) },
+    data: data,
+    success: function() { onAjaxSuccess(commentTextValue) },
     error: function(jqXHR, textStatus, errorThrown){console.log('textStatus: ' + textStatus + '. Sorry, POST failed!')}
-   //dataType: dataType
   })
 }
 
 $('document').ready(function(){
 
-  var commentBody;
-  var commentUrl;;
+  var commentForm;
+  var commentTextValue;
+  var url;
 
-  $('[value="Add comment"]').on( "click", function(e){
+  $('form').on( "submit", function(e){
 
     e.preventDefault();
-    console.log('commentUrl: ' + commentUrl);
 
-    commentBody = $('#comment_body').val();
-    commentUrl = $('#new_comment').attr('action');
+    commentTextValue = $('textarea').val();
+    commentForm = $(this).serialize();
 
-    doPost(commentUrl, commentBody);
+    console.log(commentForm);
+    console.log(commentTextValue);
 
+    url = $('#new_comment').attr('action');
 
-    cleanTextarea();
-    appendComment(commentBody);
+    doPost(url, commentForm, commentTextValue, onAjaxSuccess);
 
   });
 });
-
-
-
-
-//);[value="Add comment"]
-// $('#foo').on('click', function(){
-// alert('Вы нажали на элемент "foo"');
-// });
-
-
-// $('#comment_body')
-//  alert($('#comment_body').value);
-// );
-// console.log($('#comment_body'));
