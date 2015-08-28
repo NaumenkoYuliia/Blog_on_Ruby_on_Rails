@@ -1,0 +1,31 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the article of the site/application.
+// -----------------------------------------------------------------------------
+
+/**
+ * Inline atricle to the left
+ * Take the maximum width of the parent element
+ */
+article {
+  float: left;
+  width: 100%;
+}
+
+/**
+ * Inline article img to right
+ */
+article img{
+  float: right;
+  max-width: 50%;
+  padding-left: 0.9375rem;
+  margin-left: 0.9375rem;
+  margin-bottom: 0.9375rem;
+
+ //Adopt for diffrent screen
+  @include to(3) {
+  	max-width: 100%;
+  	float: none;
+  	margin: 0 0 1.5rem 0;
+  	padding: 0;
+  }
+}

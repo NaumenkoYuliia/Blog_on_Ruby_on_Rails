@@ -37,8 +37,7 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     erubis (2.7.0)
-    execjs (2.5.2)
-    hike (1.2.3)
+    execjs (2.6.0)
     i18n (0.7.0)
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
@@ -75,22 +74,19 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
-      json (~> 1.4)
     ref (2.0.0)
-    sass (3.2.19)
-    sass-rails (4.0.5)
+    sass (3.4.17)
+    sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
-      sass (~> 3.2.2)
-      sprockets (~> 2.8, < 3.0)
-      sprockets-rails (~> 2.0)
+      sass (~> 3.1)
+      sprockets (>= 2.8, < 4.0)
+      sprockets-rails (>= 2.0, < 4.0)
+      tilt (~> 1.1)
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    sprockets (2.12.4)
-      hike (~> 1.2)
-      multi_json (~> 1.0)
+    sprockets (3.3.3)
       rack (~> 1.0)
-      tilt (~> 1.1, != 1.3.0)
     sprockets-rails (2.3.2)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
@@ -107,7 +103,7 @@ GEM
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2015.5)
+    tzinfo-data (1.2015.6)
       tzinfo (>= 1.0.0)
     uglifier (2.7.1)
       execjs (>= 0.3.0)
@@ -124,10 +120,13 @@ DEPENDENCIES
   jquery-rails
   pg
   rails (= 4.1.8)
-  sass-rails (~> 4.0.3)
+  sass-rails
   sdoc (~> 0.4.0)
   sqlite3
   therubyracer
   turbolinks
   tzinfo-data
   uglifier (>= 1.3.0)
+
+BUNDLED WITH
+   1.10.6

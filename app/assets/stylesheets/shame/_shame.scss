@@ -1,0 +1,22 @@
+/*! shame */
+
+/**
+ * Without 'position:absolute' on pages '_show' body slid down to 20px. On pages '_new' body slid down to 3px. 
+ * A have no ideas about reason.
+ * I have added positon: absolute to fix this problem. 
+ * And left: (1.5/12*100%), where 12-basic count of columns 9-count columns selected to .wrap
+ * This should be corrected.
+ */
+
+.wrap {
+	position: absolute;
+	top: 0;
+	left:50%; 
+	margin-left:-($basic-row-width/2);
+
+//Adopt for diffrent screen
+	@include to(4) {
+	  @include span(11.5 of 12);
+	  margin-left: -11.5/12*100%/2;
+  }
+}

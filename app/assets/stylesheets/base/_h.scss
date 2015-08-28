@@ -1,0 +1,31 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles for headings.
+// -----------------------------------------------------------------------------
+
+/**
+ * Basic styles for headings
+ */
+h1 {
+  @include text-params(2.75rem, 1.4);
+  margin: 0.2rem 0 0 0;
+}
+
+h2 {
+  @include text-params(2.3125rem, 1.4);
+  margin: 0.2rem 0 0.5rem 0;
+}
+
+h3 {
+  @include text-params(1.6875rem, 1.4);
+  margin: 0.2rem 0 0.5rem 0;
+}
+
+h5 {
+  @include text-params(1.125rem, 1.4);
+  margin: 0.1rem 0px 0.625rem;
+}
+
+h6 {
+  @include text-params(1rem, 1.4);
+  margin-bottom: 0.55rem;
+}

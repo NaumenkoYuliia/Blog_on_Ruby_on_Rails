@@ -1,0 +1,18 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles for h.
+// -----------------------------------------------------------------------------
+
+/**
+ * Basic styles for horisontal line
+ */
+hr {
+  border: solid $light-grey;
+  box-sizing: border-box;
+  border-width: 1px 0px 0px;
+  clear: both;
+  margin: 20px 0;
+  height: 0;
+  .main &:last-of-type {
+    visibility: hidden;
+  }
+}

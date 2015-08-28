@@ -1,0 +1,18 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles fot links.
+// -----------------------------------------------------------------------------
+
+
+/**
+ * Basic styles for links
+ */
+a {
+  color: $brand-color;
+  font-family: $text-font-links;
+  text-decoration: none;
+
+  @include on-event {
+    color: $dark-brand-color;
+    text-decoration: none;
+  }
+}

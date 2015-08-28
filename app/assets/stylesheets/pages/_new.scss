@@ -1,0 +1,26 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the new page.
+// -----------------------------------------------------------------------------
+
+/**
+ * Creating 75%-width form, inline in center
+ */
+.post-form {
+  height: 100%;
+  width: 75%;
+  margin: 0 auto;
+// To separate post-form block from header
+	&::before {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
+
+.post-form p {
+  width: 100%;
+}
+
+.post-form h1 {
+  text-align: center;
+}

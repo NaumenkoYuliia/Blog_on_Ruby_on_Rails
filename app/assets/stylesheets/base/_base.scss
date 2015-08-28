@@ -1,0 +1,35 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+
+/**
+ * Reset all margins and paddings
+ * Make all elements border-box-type
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/**
+ * Set up settings on the root element
+ */
+html {
+  background: $background-color;
+  box-sizing: border-box;
+  font-size: 16px;
+  @include container;
+
+// Adopt for diffrent screen
+// Change font-height to smaller
+  @include to(4) {
+    font-size: 14px;
+  }
+// Change font-height to smaller
+  @include to(3) {
+    font-size: 12px;
+  }
+}
+

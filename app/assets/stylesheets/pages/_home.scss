@@ -1,0 +1,30 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+
+/**
+ * Left part of the homepage (articles)
+ */
+.content {
+  @include span(8.91 of 12);
+  padding: 0;
+
+//Adopt for diffrent screen
+	@include to(4) {
+	  @include span(12 of 12);
+	}
+}
+
+/**
+ * Right part of the homepage (includes category and featured)
+ */
+aside {
+  @include span(3.09 of 12);
+  padding: 0 0 0 1.85rem;
+  @include last;
+  
+//Adopt for diffrent screen
+  @include to(4) {
+    @include span(12 of 12);
+  }
+}

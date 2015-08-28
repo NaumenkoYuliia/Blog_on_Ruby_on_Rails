@@ -1,10 +1,10 @@
-  <div class="row-articles main-row">
+  <div class="content">
 	  	 <%= render :partial => @posts %>
   </div>
      
   <aside>
     <h5>Categories</h5>
-    <ul class="side-nav">
+    <ul class="sidebar">
       <li><%= link_to "News", posts_path(category: "News")%></li>
       <li><%= link_to "Code", posts_path(category: "Code")%></li>
       <li><%= link_to "Design", posts_path(category: "Design")%></li>
@@ -12,7 +12,7 @@
       <li><%= link_to "Weasels", posts_path(category: "Weasels")%></li>
     </ul>
     <%- if @featured_post %>
-    <div class="panel">
+    <div class="featured">
       <h5>Featured</h5>
       <%= render :partial => 'truncate' %>
       <%= link_to 'Read More →', @featured_post %>
