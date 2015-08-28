@@ -1,78 +1,89 @@
 function drawWarning() {
+// create warning message
   var warningMessage = document.createElement('div');
+   warningMessage.style.backgroundColor = 'IndianRed';
+   warningMessage.style.borderRadius = '5px';
 
-  warningMessage.style.backgroundColor = 'IndianRed';
-  warningMessage.style.borderRadius = '5px';
+   warningMessage.className = 'alert';
+   warningMessage.textContent = 'Sorry, but you\'ve written is too short message. Please try again. ';
 
-  warningMessage.className = 'alert';
-  warningMessage.textContent = 'Sorry, but you\'ve written is too short message. Please try again. ';
+   var closeLink = document.createElement('a');
+   closeLink.className = 'close';
+   closeLink.setAttribute('data-dismiss', 'alert');
+   closeLink.setAttribute('aria-label', 'close');
+   closeLink.textContent = 'Close message';
+   warningMessage.appendChild(closeLink);
 
-  var closeLink = document.createElement('a');
-  closeLink.className = 'close';
-  closeLink.setAttribute('data-dismiss', 'alert');
-  closeLink.setAttribute('aria-label', 'close');
-  closeLink.textContent = 'Close message';
-  warningMessage.appendChild(closeLink);
+// insert element in DOM
+   $('textarea').before(warningMessage);
+ }
 
-  $('form').append(warningMessage);
-}
+ function cleanTextarea() {
+   $('#comment_body').val('');
+ }
 
-function cleanTextarea() {
-  $('#comment_body').val('');
-}
+ function appendComment(commentTextValue) {
 
-function appendComment(commentTextValue) {
-  var addingCommentDiv = document.createElement('div');
-  var comment = document.createElement('p');
-  var br = document.createElement('br');
-  comment.textContent = commentTextValue;
+// create empty elements
+   var addingCommentDiv = document.createElement('div');
+   var comment = document.createElement('p');
+   var br = document.createElement('br');
 
-  var timeAgo = document.createElement('strong');
-  timeAgo.innerHTML = ('Posted ' + jQuery.timeago(new Date()));
+// add content to comment-message
+   comment.textContent = commentTextValue;
 
-  addingCommentDiv.appendChild(timeAgo);
-  addingCommentDiv.appendChild(br);
-  addingCommentDiv.appendChild(comment);
+// add inform about time, came from message creating
+   var timeAgo = document.createElement('strong');
+   timeAgo.innerHTML = ('Posted ' + jQuery.timeago(new Date()));
 
-  $('#comments').append(addingCommentDiv);
-}
+// assemble all comment information to div
+   addingCommentDiv.appendChild(timeAgo);
+   addingCommentDiv.appendChild(br);
+   addingCommentDiv.appendChild(comment);
 
-function onAjaxSuccess(commentTextValue) {
-  cleanTextarea();
-  appendComment(commentTextValue);
-}
+// insert comment to DOM
+   $('#comments').append(addingCommentDiv);
+ }
 
-function doPost(url, data, commentTextValue, onAjaxSuccess) {
-  $.ajax({
-    url: url,
-    type: "POST",
-    data: data,
-    success: function() { onAjaxSuccess(commentTextValue) },
-    error: function(jqXHR, textStatus, errorThrown){
-      if (jqXHR.status === 422) {drawWarning()}
-    }
-  })
-}
+// callBack, used when ajax succeed
+ function onAjaxSuccess(commentTextValue) {
+   cleanTextarea();
+   appendComment(commentTextValue);
+ }
 
-$('document').ready(function(){
+// function to POST new comment to server
+ function doPost(url, data, commentTextValue, onAjaxSuccess) {
+   $.ajax({
+     url: url,
+     type: "POST",
+     data: data,
+     success: function() { onAjaxSuccess(commentTextValue) },
+     error: function(jqXHR, textStatus, errorThrown){
+       if (jqXHR.status === 422) {drawWarning()}
+     }
+   })
+ }
 
- $('.close').alert();
+// start point
+ $('document').ready(function(){
 
-  var commentForm;
-  var commentTextValue;
-  var url;
+   var commentForm;
+   var commentTextValue;
+   var url;
 
-  $('form').on( "submit", function(e){
-
-    e.preventDefault();
-
-    commentTextValue = $('textarea').val();
-
-    commentForm = $(this).serialize();
-
-    url = $('#new_comment').attr('action');
-
-    doPost(url, commentForm, commentTextValue, onAjaxSuccess);
-
-  });
-});
+// hang handler on form
+   $('form').on( "submit", function(e){
+// redefine submit behaviour
+     e.preventDefault();
+// remove existing warning
+  $('.alert').remove();
+// take value from textarea (for drawing elements with js)
+     commentTextValue = $('textarea').val();
+// serialize form (to send information by POST)
+     commentForm = $(this).serialize();
+// get url from action attribute
+     url = $('#new_comment').attr('action');
+// do POST request
+     doPost(url, commentForm, commentTextValue, onAjaxSuccess);
+   });
+ });
