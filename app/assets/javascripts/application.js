@@ -15,5 +15,6 @@
 //= require turbolinks
 //= require ./vendor/jquery.timeago
 //= require ./vendor/alert
+//= require ./vendor/plugin
 //= require comments
 //= require_tree .
