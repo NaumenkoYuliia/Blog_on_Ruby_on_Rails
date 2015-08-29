@@ -1,92 +1,80 @@
-(function ($) {
-  'use strict';
-  function drawWarning() {
-  // create warning message
-    var warningMessage = document.createElement('div');
-     warningMessage.style.backgroundColor = 'IndianRed';
-     warningMessage.style.borderRadius = '5px';
 
-     warningMessage.className = 'alert';
-     warningMessage.textContent = 'Sorry, but you\'ve written is too short message. Please try again. ';
+/*
+У нас ест функция пагин, дя этого ей нужно передат 2 аргумента.
+1-й имя дата-атрибута, 2-4 конструктор, который инициаизируется в плагине.
 
-     var closeLink = document.createElement('a');
-     closeLink.className = 'close';
-     closeLink.setAttribute('data-dismiss', 'alert');
-     closeLink.setAttribute('aria-label', 'close');
-     closeLink.textContent = 'Close message';
-     warningMessage.appendChild(closeLink);
 
-  // insert element in DOM
-     $('textarea').before(warningMessage);
-   }
+создаём новое свойство-функцию для объекта jQuery, где именем нового свойства будет имя нашего плагина:
+*/
 
-   function cleanTextarea() {
-     $('#comment_body').val('');
-   }
++function($) {
+  var CommentForm = function(form, options) {
+    this.$form = $(form)
+    this.options = options
 
-   function appendComment(commentTextValue) {
+    this.$form('submit', $.proxy(this.submit, this))
 
-  // create empty elements
-     var addingCommentDiv = document.createElement('div');
-     var comment = document.createElement('p');
-     var br = document.createElement('br');
+    $(this.options.template)
+  }
 
-  // add content to comment-message
-     comment.textContent = commentTextValue;
+  CommentForm.DEFAULTS = {
 
-  // add inform about time, came from message creating
-     var timeAgo = document.createElement('strong');
-     timeAgo.innerHTML = ('Posted ' + jQuery.timeago(new Date()));
+    template: [
+      '<div>',
+        '<strong>{timeAgoOfCreation}</strong>',
+        '<br/>',
+        '{data}',
+      '</div>',
+    ].join(''),
 
-  // assemble all comment information to div
-     addingCommentDiv.appendChild(timeAgo);
-     addingCommentDiv.appendChild(br);
-     addingCommentDiv.appendChild(comment);
+    warningTemplate: [
+      '<div>',
+        '{warningError}',
+      '</div>',
+    ].join(''),
 
-  // insert comment to DOM
-     $('#comments').append(addingCommentDiv);
-   }
+    error: 'something went wrong',
 
-  // callBack, used when ajax succeed
-   function onAjaxSuccess(commentTextValue) {
-     cleanTextarea();
-     appendComment(commentTextValue);
-   }
+    alertSelector: '.alert'
+  }
 
-  // function to POST new comment to server
-   function doPost(url, data, commentTextValue, onAjaxSuccess) {
-     $.ajax({
-       url: url,
-       type: "POST",
-       data: data,
-       success: function() { onAjaxSuccess(commentTextValue) },
-       error: function(jqXHR, textStatus, errorThrown){
-         if (jqXHR.status === 422) {drawWarning()}
-       }
-     })
-   }
+  CommentForm.prototype = {
 
-  // start point
-   $('document').ready(function(){
+    submit: function(e) {
+      e.preventDefault()
 
-     var commentForm;
-     var commentTextValue;
-     var url;
+      var url = this.$form.attr('action')
 
-  // hang handler on form
-     $('form').on( "submit", function(e){
-  // redefine submit behaviour
-       e.preventDefault();
-  // remove existing warning
-    $('.alert').remove();
-  // take value from textarea (for drawing elements with js)
-       commentTextValue = $('textarea').val();
-  // serialize form (to send information by POST)
-       commentForm = $(this).serialize();
-  // get url from action attribute
-       url = $('#new_comment').attr('action');
-  // do POST request
-       doPost(url, commentForm, commentTextValue, onAjaxSuccess);
-     });
-   });
-})(window.JQuery);
+      $commentForm = this.$form.serialize()
+
+      $.post(url, $commentForm)
+        .then(this.renderComment)
+        .then(this.cleanTextarea)
+        .fail(this.fail)
+    },
+
+    renderComment: function() {
+      // fill data
+      var commentData = $('textarea').val();
+      // replace cap in the teplate to apropriate data
+      template.replace('{data}', commentData)
+      // append to dom
+      $('#comments').append(template)
+    },
+
+    cleanTextarea: function(){
+      $('textarea').val('')
+    },
+
+    fail: function() {
+      //show error message
+      $('textarea').before(warningTemplate);
+    }
+  }
+
+  new Plugin('commentForm', CommentForm)
+
+  $(function() {
+    $('[data-comment-form]').commentForm()
+  })()
+}(window.jQuery);
